@@ -1,0 +1,89 @@
+commit a191e6c348ec73487dceaecc1c5a76c85b750bdb
+Author: Trond Norbye <trond.norbye@gmail.com>
+Date:   Mon May 9 15:50:28 2011 +0200
+
+    Fix compilation on Solaris (get the -L before the -l)
+    
+    Change-Id: I6e402b89c66d04e02a71bc89986a19ea76955883
+
+commit 1b2ed229be85d66d7746c39a17a7e2fbb5736566
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Tue May 3 15:04:38 2011 -0700
+
+    added iowait time to idle
+    
+    So that Unix machines don't count iowait time as 'cpu-used'.
+    
+    Change-Id: I8d919bdad6e4b2cc3e347dbda6ed485ab6825f6b
+
+commit 1aa8cd9f10a0dcb83a36895e06744e0b1b2311aa
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Tue May 3 14:42:23 2011 -0700
+
+    untabify
+    
+    Change-Id: I7689524f682ed0ad164f28a28e7db3e87b54ba91
+
+commit 2ffcf7ae4e43ae31d2b9da611c8c493bed747af3
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Tue May 3 14:40:20 2011 -0700
+
+    set binary mode for stdin and stdout
+    
+    Change-Id: I8b0de9c18eb1904e3d95ba0a5f4e12ff6247d8a0
+
+commit d836fad1b58f1dada8116738f6dc73bba3ee391f
+Author: Trond Norbye <trond.norbye@gmail.com>
+Date:   Tue Mar 22 21:17:56 2011 +0100
+
+    Fix the test to search for sigar
+    
+    Change-Id: I028d45c914a0d36ae3d6a6956fcef558d026b5b0
+
+commit 3d80adb7aa3201df24422c91fa475698521bf28b
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Wed Mar 9 19:15:13 2011 -0800
+
+    made it find libsigar on windows
+
+commit 8d00f2097fe605be5068d7b98bfe526e1285467b
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Wed Mar 9 16:06:12 2011 -0800
+
+    Membase is already Couchbase
+
+commit 0d77579a78baac504485b5f73ac4c735db5ab1a3
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Mon Feb 28 17:21:48 2011 -0800
+
+    added copyright header and reformatted for membase C coding style
+
+commit 40e3dca356644bf774f7940a25e3e12e9ffe6f03
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Mon Feb 28 17:14:19 2011 -0800
+
+    use version 0 of 'protocol'
+
+commit 0b76757b36e606cda91e96d2e817b35ea295253c
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Mon Feb 28 17:12:30 2011 -0800
+
+    added license and README
+
+commit f9ceb5d1b9a3cc8309801e4f503603069bbf37a6
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Fri Feb 25 19:00:19 2011 -0800
+
+    made it actually work
+
+commit 996501a461a037887da996e69f9737f608ae4e38
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Fri Feb 25 19:10:25 2011 -0800
+
+    use libtool to link with rpath
+
+commit 7a611f3d6f6900126c5404d0514df948c72037b2
+Author: Aliaksey Kandratsenka <alk@tut.by>
+Date:   Fri Feb 25 17:49:48 2011 -0800
+
+    created initial autotools project
