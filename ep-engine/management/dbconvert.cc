@@ -6,6 +6,7 @@
 #include <iostream>
 #include <utility>
 #include <cstdlib>
+#include <unistd.h>
 
 #ifdef HAVE_SYSEXITS_H
 #include <sysexits.h>

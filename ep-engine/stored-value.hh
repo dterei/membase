@@ -5,6 +5,7 @@
 #include <climits>
 #include <cstring>
 #include <algorithm>
+#include <unistd.h>
 
 #include "common.hh"
 #include "item.hh"
