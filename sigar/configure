@@ -15291,7 +15291,6 @@ $as_echo "#define DARWIN /**/" >>confdefs.h
 
 $as_echo "#define SIGAR_TEST_OS_DARWIN 1" >>confdefs.h
 
-     SIGAR_INCLUDES="-I /Developer/Headers/FlatCarbon/"
      SIGAR_LIBS="-framework IOKit -framework CoreServices"
      ;;
      *netbsd*)
