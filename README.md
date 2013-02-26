@@ -7,6 +7,24 @@ Instead they push CouchDB now.
 [Membase Download](http://www.couchbase.com/downloads-all#couchbase-server-1-7)
 [Membase Userguide](http://www.couchbase.com/docs/membase-manual-1.7/)
 
+## Building
+
+There is a top-level single Makefile that build everything else. The
+rest of the directories use the standard GNU Automake / Autoconf
+toolkit.
+
+By default `make` will build everything, installing at the
+subdirectory 'install'. You can try setting the 'DESTDIR' variable to
+choose an alternate installation location but I'm not sure if it
+works.
+
+~~~~ {.sh}
+$ make -j8
+~~~~
+
+You can build invidual components by changing to their directories and
+issuing the `make` command or even starting with the `configure` step.
+
 ## Source Code
 
 Membase is a collection of components that must be invididualy built.
@@ -26,20 +44,6 @@ The most important folders are:
 * moxi/ - A memcached proxy that also implements the membase
   extensions (vbuckets). Supports both text and binary as input but
   only binary as output.
-
-## Building
-
-There is a top-level single Makefile that build everything else. The
-rest of the directories use the standard GNU Automake / Autoconf
-toolkit.
-
-By default `make` will build everything, installing at the
-subdirectory 'install'. You can try setting the 'DESTDIR' variable to
-choose an alternate installation location but I'm not sure if it
-works.
-
-You can build invidual components by changing to their directories and
-issuing the `make` command or even starting with the `configure` step.
 
 ## Bucket (multi-tenancy)
 
