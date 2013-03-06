@@ -3,6 +3,8 @@
 *.la
 *.lo
 *.o
+*.pyc
+run-temp
 config.h
 config.log
 config.status
