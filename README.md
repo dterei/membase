@@ -25,6 +25,54 @@ $ make -j8
 You can build invidual components by changing to their directories and
 issuing the `make` command or even starting with the `configure` step.
 
+
+## Running
+
+You can run the full membase server using:
+
+~~~~ {.sh}
+$ ./install/bin/membase-server -noinput
+~~~~
+
+Then, go to http://localhost:8091 on your browser to set it all up.
+This will launch with the manager process and statistics monitoring.
+
+An alternative way (which ONLY launches the memcached server) is to
+use the `start_memcached.sh` script in the root directory:
+
+~~~~ {.sh}
+$ ./start\_memcached.sh
+~~~~
+
+This will use the settings defined in the top of the script and setup
+the launched memcached server with multiple buckets (/ tenants).
+
+### Difference in Running from Memcached
+
+Memcached is very easy (practically and conceptually) to run as it has
+no persistence and isn't multi-tenant. So you simply start a process
+and are done.
+
+Membase requires more configuration. Incluiding:
+* Set the ISASL\_PWFILE variable before launching to configure the
+  available users. (There must be a one-to-one mapping between users
+  and buckets [e.g., you access the 'x' bucket with username 'x'],
+  authentication is how buckets are selected).
+
+* When memcached is launched, you must tell it which buckets are
+  available. This includes first trying to 'select' a bucket and when
+  that fails (miss), you issue a 'create' bucket command. This command
+  includes the location on disk for where to find and store persistent
+  data.
+
+* After creating a bucket (and selecting it again to specify which
+  buckets subsequent commands will use), you must setup the vbucket
+  mapping for the server. This is done through a 'set\_vbucket\_state'
+  call to say that vbucket 0 is active on this server... e.t.c.
+
+That should be it to be done. The `start_memcached.sh` takes care of
+all of this.
+
 ## Source Code
 
 Membase is a collection of components that must be invididualy built.
