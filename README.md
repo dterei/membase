@@ -25,7 +25,6 @@ $ make -j8
 You can build invidual components by changing to their directories and
 issuing the `make` command or even starting with the `configure` step.
 
-
 ## Running
 
 You can run the full membase server using:
