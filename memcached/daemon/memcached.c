@@ -275,6 +275,7 @@ static void settings_init(void) {
     settings.topkeys = 0;
     settings.require_sasl = false;
     settings.extensions.logger = get_stderr_logger();
+    settings.thread_affinity = false;
 }
 
 /*
@@ -6061,6 +6062,7 @@ static void usage(void) {
            "              is turned on automatically; if not, then it may be turned on\n"
            "              by sending the \"stats detail on\" command to the server.\n");
     printf("-t <num>      number of threads to use (default: 4)\n");
+    printf("-T            set distinct cpu affinity for threads (round robbin)\n");
     printf("-R            Maximum number of requests per event, limits the number of\n"
            "              requests process for a given connection to prevent \n"
            "              starvation (default: 20)\n");
@@ -6892,6 +6894,7 @@ int main (int argc, char **argv) {
           "f:"  /* factor? */
           "n:"  /* minimum space allocated for key+value+flags */
           "t:"  /* threads */
+          "T"   /* thread affinity */
           "D:"  /* prefix delimiter? */
           "L"   /* Large memory pages */
           "R:"  /* max requests per event */
@@ -7021,6 +7024,15 @@ int main (int argc, char **argv) {
                         " Set this value to the number of cores in"
                         " your machine or less.\n");
             }
+            break;
+        case 'T':
+            settings.thread_affinity = true;
+#ifndef CPU_ISSET
+                settings.extensions.logger->log(EXTENSION_LOG_WARNING, NULL,
+                            "Invalid use of -A\r\n\t -- This OS does not "
+                                "support thread affinity .");
+                    exit(EX_USAGE);
+#endif
             break;
         case 'D':
             settings.prefix_delimiter = optarg[0];
